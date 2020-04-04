@@ -5,17 +5,17 @@
         <h1 class="heading">smart brain</h1>
         <div class="mt-10">
 
-          <div class="buttw-1 mx-auto waves-effect waves-light " style="position: relative;">
+          <div class="buttw-1 mx-auto waves-effect waves-light " @click="nextPage('StatPage')" style="position: relative;">
             <div class="buttw-2 "></div>
-            <span class="" style="position:absolute; top:28px; left:46px;">Стать самостоятельным</span>
+            <span class="" style="position:absolute; top:28px; left:65px;">Стать самостоятельным</span>
           </div>
 
-          <div class="buttd-1 mx-auto waves-effect waves-light " style="position: relative;">
+          <div class="buttd-1 mt-4 mx-auto waves-effect waves-light " style="position: relative;">
             <div class="buttd-2 "></div>
-            <span class="text-danger" style="position:absolute; top:28px; left:46px;">Стать самостоятельным</span>
+            <span class="text-danger" style="position:absolute; top:28px; left:65px;">Остаться неудачником</span>
           </div>
           <!-- <button type="button" class="butt text-white waves-effect waves-light" name="button"> Стать самостоятельным </button> -->
-          <button type="button" class="butt-dang text-danger waves-effect waves-light mt-4" name="button">Остаться неудачником</button>
+          <!-- <button type="button" class="butt-dang text-danger waves-effect waves-light mt-4" name="button">Остаться неудачником</button> -->
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ export default {
     width: 316px;
     box-shadow: 0px 0px 15px #FFFFFF;
     font-size: 22px;
-    border-radius: 10px;
+    border-radius: 7px;
 
   }
   .buttw-2{
@@ -52,23 +52,23 @@ export default {
     height: 90px;
     border: 6px solid #FFFFFF;
     box-shadow: inset 0px 0px 15px #FFFFFF;
-    filter: blur(2px);
-    border-radius: 10px;
+    filter: blur(1px);
+    border-radius: 7px;
   }
-  .buttw-1{
+  .buttd-1{
     width: 316px;
-    box-shadow: 0px 0px 15px #FFFFFF;
+    box-shadow: 0px 0px 15px #FF4444;
     font-size: 22px;
-    border-radius: 10px;
+    border-radius: 7px;
 
   }
-  .buttw-2{
+  .buttd-2{
     width: 316px;
     height: 90px;
-    border: 6px solid #FFFFFF;
-    box-shadow: inset 0px 0px 15px #FFFFFF;
-    filter: blur(2px);
-    border-radius: 10px;
+    border: 6px solid #FF4444;
+    box-shadow: inset 0px 0px 15px #FF4444;
+    filter: blur(1px);
+    border-radius: 7px;
   }
   .poln{
     min-height: 100vh;

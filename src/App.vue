@@ -1,20 +1,31 @@
 <template>
   <div id="app">
     <HelloPage :nextPage="nextPage"  v-if="namePage == 'HelloPage'" />
+    <StatPage :nextPage="nextPage"  v-if="namePage == 'StatPage'" />
+    <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" />
+    <!-- <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" /> -->
   </div>
 </template>
 
 <script>
 import HelloPage from './components/HelloPage.vue'
+import StatPage from './components/StatPage.vue'
+import AgePage from './components/AgePage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloPage
+    HelloPage,
+    StatPage,
+    AgePage,
+
+
   },
   mounted() {
     // localStorage.name
-
+    if (localStorage.namePage) {
+      // this.namePage = localStorage.namePage
+    }
   },
   data(){
     return{
@@ -24,6 +35,7 @@ export default {
   methods:{
     nextPage: function(newPage) {
       this.namePage = newPage
+      localStorage.namePage = newPage
     },
 
   },
@@ -37,7 +49,10 @@ export default {
   }
 
   #app {
-    font-family: Raleway;
+    /* font-family: Roboto; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Oswald', sans-serif;
+    /* font-weight: 100; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* color: #2c3e50; */
