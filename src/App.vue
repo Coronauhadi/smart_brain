@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloPage :nextPage="nextPage"  v-if="namePage == 'HelloPage'" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloPage from './components/HelloPage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloPage
+  },
+  mounted() {
+    // localStorage.name
+
+  },
+  data(){
+    return{
+      namePage: "HelloPage",
+    }
+  },
+  methods:{
+    nextPage: function(newPage) {
+      this.namePage = newPage
+    },
+
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Amatic SC;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* color: #2c3e50; */
 }
 </style>
