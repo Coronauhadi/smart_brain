@@ -31,10 +31,15 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Amatic SC;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* color: #2c3e50; */
-}
+  h1{
+    font-family: Amatic SC;
+
+  }
+
+  #app {
+    font-family: Raleway;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* color: #2c3e50; */
+  }
 </style>
