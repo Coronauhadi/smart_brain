@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
-    <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+    <header class="row">
+      <nav class="col  elegant-color-dark text-white">
+        <div class="container-fluid">
           <div class="row">
             <div class="col">
               <span class="navbar-brand"> <img src="/res/coin.png" width="25" height="25" alt="Монетки:"> {{coins}} </span>
@@ -41,6 +41,6 @@ export default {
 <style scoped>
 .navbar-brand{
   /* TODO: check on the phones */
-  margin: 0 -20vw;
+  /* margin: 0 -20vw; */
 }
 </style>
