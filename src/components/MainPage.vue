@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid elegant-color-dark poln">
     <header class="row">
       <nav class="col  elegant-color-dark text-white">
         <div class="container-fluid">
@@ -12,7 +12,7 @@
       </nav>
     </header>
     <div class="row">
-      <div class="col elegant-color-dark poln text-warning text-center">
+      <div class="col elegant-color-dark  text-warning text-center">
         <div class="quote">
           <p> '<strong>Самостоятельность</strong> - это способность купить сосиски не по акции.' (с) Адам Смит </p>
         </div>
@@ -22,8 +22,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="col text-center">
-          <div class="tasklist">
+      <div class="col text-center tasklist">
+          <div class="">
             <p> Бла-бла-бла </p>
             <p> Бла-бла-бла </p>
             <p> Бла-бла-бла </p>
@@ -51,11 +51,14 @@ export default {
 </script>
 
 <style scoped>
+  .poln{
+    min-height: 100vh;
+  }
   .container-fluid{
-    background-color: #212121;
+    /* background-color: #212121; */
   }
   .tasklist{
-    border-top-right-radius: 30px;
+    border-top-right-radius: 65px;
     border: 5vh solid white;
     background-color: white;
     color: #212121;
