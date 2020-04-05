@@ -24,14 +24,27 @@
       </div>
     </div>
 
-    <div class="row tasklist-head  pt-4" style="margin-right:-5px; box-shadow: 1px 0px 15px 0 rgb(0, 0, 0);" >
-      <div class="col-12 d-flex justify-content-between pl-3 pr-4">
-        <p class=" text-left font-weight-bold"> ЗАДАНИЯ </p>
-        <p class=" text-right"> Выполнено всего: <b>{{tasksDone}}</b> </p>
-      </div>
+    <div class="row tasklist-head  pt-4" style="margin-right:-5px; " >
 
-      <div class="col-12">
+      <div class="col-12 p-0">
+        <div class="container-fluid p-0">
 
+          <div class="row px-3">
+            <div class="col-12 d-flex justify-content-between pl-3 pr-4" style="height:30px;">
+              <p class=" text-left font-weight-light h4" style=""> ЗАДАНИЯ </p>
+              <p class=" text-right" style="font-size: 18px;"> Выполнено всего: <b>{{tasksDone}}</b> </p>
+            </div>
+          </div>
+
+            <div class="row mt-3 z-depth-1 mr-3" style="height:122px;">
+              <div class="col-7">
+                sad
+              </div>
+              <div class="col-5">
+                sad
+              </div>
+            </div>
+        </div>
       </div>
 
 
