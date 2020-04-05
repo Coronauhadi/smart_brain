@@ -12,13 +12,22 @@
       </nav>
     </header>
     <div class="row">
-      <div class="col">
-        <div class="">
-<<<<<<< HEAD
-=======
-          <!-- <span class=""> 'Самостоятельность - это способность купить сосиски не по акции.' (с) Адам Смит </span> -->
->>>>>>> 4931828fd990c2205eeae20e3f21acdbfc96ab22
+      <div class="col elegant-color-dark poln text-warning text-center">
+        <div class="quote">
+          <p> '<strong>Самостоятельность</strong> - это способность купить сосиски не по акции.' (с) Адам Смит </p>
         </div>
+        <div class="todoBanner">
+          <p> Выполняй задания и становись самостоятельным! </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+          <div class="tasklist">
+            <p> Бла-бла-бла </p>
+            <p> Бла-бла-бла </p>
+            <p> Бла-бла-бла </p>
+          </div>
       </div>
     </div>
   </div>
@@ -42,8 +51,13 @@ export default {
 </script>
 
 <style scoped>
-.navbar-brand{
-  /* TODO: check on the phones */
-  /* margin: 0 -20vw; */
-}
+  .container-fluid{
+    background-color: #212121;
+  }
+  .tasklist{
+    border-top-right-radius: 30px;
+    border: 5vh solid white;
+    background-color: white;
+    color: #212121;
+  }
 </style>
