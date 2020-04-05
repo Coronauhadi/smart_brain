@@ -1,9 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div class="container-fluid ">
-=======
   <div class="container-fluid elegant-color-dark poln">
->>>>>>> 4cdcf021fd9e7bb573ff0b2a6744e4580db784c0
     <header class="row">
       <nav class="col  elegant-color-dark text-white">
         <div class="container-fluid">
@@ -25,16 +21,20 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col text-center tasklist">
-          <div class="">
-            <p> Бла-бла-бла </p>
-            <p> Бла-бла-бла </p>
-            <p> Бла-бла-бла </p>
-          </div>
+    <div class="row tasklist-head">
+        <strong class="col-md-1 text-left font-weight-bold"> Задания </strong>
+        <p class="col-md-11 text-right"> Выполнено сегодня: {{tasksDone}} </p>
+    </div>
+      <div class="row task shadow p-3 mb-5 bg-white">
+        <div class="col">
+          <ul class="list-group-flush">
+         <li class="list-group-item" :v-for="task in taskList">
+           {{task.text}}
+         </li>
+       </ul>
+      </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -43,9 +43,29 @@ export default {
   props: {
     nextPage: Function,
   },
+  created(){
+    console.log('hooked')
+    this.taskList.push(this.task1)
+    this.taskList.push(this.task2)
+    for(let i=0;i<this.taskList.length;i++){
+      console.log(this.taskList)
+    }
+  },
   data(){
     return{
       coins: 0,
+      tasksDone: 0,
+      taskList:[],
+      task1: {
+        text: "Начать мыслить как самостоятельный человек",
+        cost: "Бесплатно",
+        imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
+      },
+      task2: {
+        text: "Начать мыслить как самостоятельный человек",
+        cost: "Бесплатно",
+        imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
+      },
     }
   },
   methods: {
@@ -61,9 +81,13 @@ export default {
   .container-fluid{
     /* background-color: #212121; */
   }
-  .tasklist{
+  .tasklist-head{
     border-top-right-radius: 65px;
     border: 5vh solid white;
+    background-color: white;
+    color: #212121;
+  }
+  .task{
     background-color: white;
     color: #212121;
   }
