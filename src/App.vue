@@ -32,7 +32,7 @@ export default {
   mounted() {
     // localStorage.name
     if (localStorage.namePage) {
-      // this.namePage = localStorage.namePage
+      this.namePage = localStorage.namePage
     }
   },
   data(){
