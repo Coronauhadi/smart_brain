@@ -5,6 +5,7 @@
     <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" />
     <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" />
     <Loser :nextPage="nextPage" v-if="namePage == 'Loser'" />
+    <Task :nextPage="nextPage" v-if="namePage == 'Task'" />
     <!-- <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" /> -->
   </div>
 </template>
@@ -15,6 +16,7 @@ import StatPage from './components/StatPage.vue'
 import AgePage from './components/AgePage.vue'
 import MainPage from './components/MainPage.vue'
 import Loser from './components/Loser.vue'
+import Task from './components/Task.vue'
 // import MainPage from './components/MainPage.vue'
 
 export default {
@@ -25,6 +27,7 @@ export default {
     AgePage,
     MainPage,
     Loser,
+    Task,
     // MainPage,
 
 
