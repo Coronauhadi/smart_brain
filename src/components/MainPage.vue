@@ -78,13 +78,14 @@ export default {
     border: 5vh solid white;
     background-color: white;
     color: #212121;
+    font-size: 19px;
   }
   .task{
-    margin: 1px -15px;
     background-color: white;
     color: #212121;
+    font-size: 20px;
+    line-height: 0.8;
   }
-
   .cost{
     position:relative;
     bottom: -90px;
