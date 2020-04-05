@@ -11,9 +11,9 @@
           <hr class="anim" :style="cor">
         </div>
 
-        <div class="buttw-1 mx-auto waves-effect waves-light mt-5" v-if="stat==4"  style="position: relative;">
+        <div class="buttw-1 mx-auto waves-effect waves-light mt-5" @click="newPage('MainPage')" v-if="stat==4"  style="position: relative;">
           <div class="buttw-2 "></div>
-          <span class="" style="position:absolute; top:28px; left:70px;">все равно попытаться</span>
+          <span class="st" style="">все равно попытаться</span>
         </div>
 
         <div class="d-flex justify-content-between flex-wrap mt-5" v-if="stat==1"  style="">
@@ -127,15 +127,26 @@ export default {
 </script>
 
 <style scoped>
+  .st{
+    width: 80%;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
   .buttw-1{
-    width: 316px;
+    width: 90%;
     box-shadow: 0px 0px 15px #FFFFFF;
     font-size: 22px;
     border-radius: 7px;
 
   }
   .buttw-2{
-    width: 316px;
+    width: 100%;
     height: 90px;
     border: 6px solid #FFFFFF;
     box-shadow: inset 0px 0px 15px #FFFFFF;
