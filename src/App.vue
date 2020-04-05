@@ -33,7 +33,7 @@ export default {
     // localStorage.name
     if (localStorage.namePage) {
       //Эта переменная влияет на сохранение страницы при перезагрузке
-      // this.namePage = localStorage.namePage
+      this.namePage = localStorage.namePage
     }
   },
   data(){
