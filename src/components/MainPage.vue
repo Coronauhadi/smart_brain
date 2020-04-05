@@ -14,7 +14,6 @@
     <div class="row">
       <div class="col">
         <div class="">
-          <span class=""> 'Самостоятельность - это способность купить сосиски не по акции.' (с) Адам Смит </span>
         </div>
       </div>
     </div>
