@@ -29,7 +29,7 @@
         <div class="col">
         <ul id="tasks" class="list-group-flush">
          <li class="list-group-item" :v-for="li in taskList" v-bind:key="li.text">
-           {{iter.text}}
+           {{li.text}}
          </li>
        </ul>
       </div>
