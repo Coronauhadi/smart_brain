@@ -22,18 +22,14 @@
       </div>
     </div>
     <div class="row tasklist-head">
-        <strong class="col-md-1 text-left font-weight-bold"> Задания </strong>
-        <p class="col-md-11 text-right"> Выполнено сегодня: {{tasksDone}} </p>
+        <p class="col-sm-6 text-left font-weight-bold"> Задания </p>
+        <p class="col-sm-6 text-right"> Выполнено сегодня: {{tasksDone}} </p>
     </div>
-      <div class="row task shadow p-3 mb-5 bg-white">
-        <div class="col">
-        <ul id="tasks" class="list-group-flush">
-         <li class="list-group-item" :v-for="li in taskList" v-bind:key="li.text">
-           {{li.text}}
-         </li>
-       </ul>
-      </div>
-      </div>
+    <div class="row task shadow p-3 mb-5 bg-white" v-for="task in taskList" :key="task.text">
+      <p class="col-sm-4 text-left">{{task.text}}</p>
+      <p class="col-sm-4 cost"> <img src="/res/coin.png" width="25" height="25" alt="Монетки:"> {{task.cost}} </p>
+      <p class="col-sm-4 text-right"> <img :src="task.imglink" width="100" height="100"> </p>
+    </div>
     </div>
 </template>
 
@@ -43,20 +39,23 @@ export default {
   props: {
     nextPage: Function,
   },
+  created(){
+    console.log(this.taskList)
+  },
   data(){
     return{
       coins: 0,
       tasksDone: 0,
       taskList:[
       {
-        text: "Начать мыслить как самостоятельный человек",
-        cost: "Бесплатно",
-        imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
+        text: 'Начать мыслить как самостоятельный человек',
+        cost: 'Бесплатно',
+        imglink: 'https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg',
       },
       {
-        text: "Начать",
-        cost: "платно",
-        imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
+        text: 'Начать',
+        cost: 'платно',
+        imglink: 'https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg',
       },
     ],
     }
@@ -81,7 +80,13 @@ export default {
     color: #212121;
   }
   .task{
+    margin: 1px -15px;
     background-color: white;
     color: #212121;
+  }
+
+  .cost{
+    position:relative;
+    bottom: -90px;
   }
 </style>
