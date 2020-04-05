@@ -72,7 +72,7 @@ export default {
   }
   .container-fluid{
     /* background-color: #212121; */
-  } 
+  }
   .tasklist-head{
     border-top-right-radius: 65px;
     border: 5vh solid white;
