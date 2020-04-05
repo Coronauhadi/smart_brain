@@ -11,7 +11,7 @@
           <hr class="anim" :style="cor">
         </div>
 
-        <div class="buttw-1 mx-auto waves-effect waves-light mt-5" @click="newPage('MainPage')" v-if="stat==4"  style="position: relative;">
+        <div class="buttw-1 mx-auto waves-effect waves-light mt-5" @click="nextPage('MainPage')" v-if="stat==4"  style="position: relative;">
           <div class="buttw-2 "></div>
           <span class="st" style="">все равно попытаться</span>
         </div>
