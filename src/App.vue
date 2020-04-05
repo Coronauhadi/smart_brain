@@ -3,7 +3,8 @@
     <HelloPage :nextPage="nextPage"  v-if="namePage == 'HelloPage'" />
     <StatPage :nextPage="nextPage"  v-if="namePage == 'StatPage'" />
     <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" />
-    <!-- <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" /> -->
+    <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" />
+    <!-- <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" /> -->
   </div>
 </template>
 
@@ -11,6 +12,8 @@
 import HelloPage from './components/HelloPage.vue'
 import StatPage from './components/StatPage.vue'
 import AgePage from './components/AgePage.vue'
+import MainPage from './components/MainPage.vue'
+// import MainPage from './components/MainPage.vue'
 
 export default {
   name: 'App',
@@ -18,6 +21,8 @@ export default {
     HelloPage,
     StatPage,
     AgePage,
+    MainPage,
+    // MainPage,
 
 
   },

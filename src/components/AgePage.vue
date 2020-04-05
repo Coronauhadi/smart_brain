@@ -104,7 +104,6 @@ export default {
         }
         if (d > aTmp[m][0]) m += 1;
         if (m > 12) m = 1;
-        console.log(aTmp[m][1]);
         return aTmp[m][1];
     }
 
@@ -162,7 +161,7 @@ export default {
     min-height: 100vh;
   }
   .heading{
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 55px;
   }
   a{
