@@ -12,11 +12,11 @@
       </nav>
     </header>
     <div class="row">
-      <div class="col elegant-color-dark  text-warning text-center">
+      <div class="col elegant-color-dark  text-warning ">
         <div class="quote">
           <p> '<strong>Самостоятельность</strong> - это способность купить сосиски не по акции.' (с) Адам Смит </p>
         </div>
-        <div class="todoBanner">
+        <div class="todoBanner text-center">
           <p> Выполняй задания и становись самостоятельным! </p>
         </div>
       </div>
