@@ -10,7 +10,7 @@
             <span class="st" style="">Стать самостоятельным</span>
           </div>
 
-          <div class="buttd-1 mt-4 mx-auto waves-effect waves-light " style="position: relative;">
+          <div class="buttd-1 mt-4 mx-auto waves-effect waves-light " @click="nextPage('Loser')" style="position: relative;">
             <div class="buttd-2 "></div>
             <span class="text-danger st" style="">Остаться неудачником</span>
           </div>
