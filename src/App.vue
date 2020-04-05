@@ -32,7 +32,8 @@ export default {
   mounted() {
     // localStorage.name
     if (localStorage.namePage) {
-      this.namePage = localStorage.namePage
+      //Эта переменная влияет на сохранение страницы при перезагрузке
+      // this.namePage = localStorage.namePage
     }
   },
   data(){
