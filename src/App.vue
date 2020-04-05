@@ -34,18 +34,22 @@ export default {
   },
   mounted() {
     // localStorage.name
+    this.aud = new Audio();
+    this.aud.src = 'mus/Sound.wav';
     if (localStorage.namePage) {
       //Эта переменная влияет на сохранение страницы при перезагрузке
-      this.namePage = localStorage.namePage
+      // this.namePage = localStorage.namePage
     }
   },
   data(){
     return{
       namePage: "HelloPage",
+      aud:'',
     }
   },
   methods:{
     nextPage: function(newPage) {
+      this.aud.play();
       this.namePage = newPage
       localStorage.namePage = newPage
     },

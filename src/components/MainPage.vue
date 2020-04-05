@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="row tasklist-head  pt-4" style="margin-right:-5px; " >
+    <div class="row tasklist-head animated delay-1s slow fadeInUp pt-4" style="margin-right:-5px; " >
 
       <div class="col-12 p-0">
         <div class="container-fluid ">
@@ -36,7 +36,7 @@
             </div>
           </div>
 
-            <div v-for="task in taskList" :key="task.name" class="row mt-3 z-depth-1 mr-0 " style="min-height:110px;">
+            <div v-for="task in taskList" :key="task.name" class="row mt-3 z-depth-1 mr-0 animated delay-3s  fadeInLeft" style="min-height:110px;">
               <div class="col pr-3 pt-3 pl-3 pb-0">
                 <p class="lead m-0">{{task.text}}</p>
                 <p class="text-right m-0 mt-1" style="position:absolute; bottom:0px; right:10px;"> <b>{{task.cost==0?'Бесплатно':task.cost}}</b>
@@ -110,7 +110,7 @@ export default {
     /* background-color: #212121; */
   }
   .tasklist-head{
-    min-height: 80vh;
+    min-height: 75vh;
     border-top-right-radius: 65px;
     background-color: white;
   }
