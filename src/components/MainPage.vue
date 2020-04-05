@@ -27,9 +27,9 @@
     </div>
       <div class="row task shadow p-3 mb-5 bg-white">
         <div class="col">
-          <ul class="list-group-flush">
-         <li class="list-group-item" :v-for="task in taskList">
-           {{task.text}}
+        <ul id="tasks" class="list-group-flush">
+         <li class="list-group-item" :v-for="li in taskList" v-bind:key="li.text">
+           {{iter.text}}
          </li>
        </ul>
       </div>
@@ -43,29 +43,22 @@ export default {
   props: {
     nextPage: Function,
   },
-  created(){
-    console.log('hooked')
-    this.taskList.push(this.task1)
-    this.taskList.push(this.task2)
-    for(let i=0;i<this.taskList.length;i++){
-      console.log(this.taskList)
-    }
-  },
   data(){
     return{
       coins: 0,
       tasksDone: 0,
-      taskList:[],
-      task1: {
+      taskList:[
+      {
         text: "Начать мыслить как самостоятельный человек",
         cost: "Бесплатно",
         imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
       },
-      task2: {
-        text: "Начать мыслить как самостоятельный человек",
-        cost: "Бесплатно",
+      {
+        text: "Начать",
+        cost: "платно",
         imglink: "https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg",
       },
+    ],
     }
   },
   methods: {
