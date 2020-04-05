@@ -27,23 +27,26 @@
     <div class="row tasklist-head  pt-4" style="margin-right:-5px; " >
 
       <div class="col-12 p-0">
-        <div class="container-fluid p-0">
+        <div class="container-fluid ">
 
           <div class="row px-3">
-            <div class="col-12 d-flex justify-content-between pl-3 pr-4" style="height:30px;">
+            <div class="col-12 d-flex justify-content-between pl-0 pr-3" style="height:30px;">
               <p class=" text-left font-weight-light h4" style=""> ЗАДАНИЯ </p>
               <p class=" text-right" style="font-size: 18px;"> Выполнено всего: <b>{{tasksDone}}</b> </p>
             </div>
           </div>
 
-            <div class="row mt-3 z-depth-1 mr-3" style="height:122px;">
-              <div class="col-7">
-                sad
+            <div v-for="task in taskList" :key="task.name" class="row mt-3 z-depth-1 mr-0 " style="min-height:110px;">
+              <div class="col pr-3 pt-3 pl-3 pb-0">
+                <p class="lead m-0">{{task.text}}</p>
+                <p class="text-right m-0 mt-1" style="position:absolute; bottom:0px; right:10px;"> <b>{{task.cost==0?'Бесплатно':task.cost}}</b>
+                  <img src="/res/coin.png" style="width:27px;" alt="">
+                </p>
               </div>
-              <div class="col-5">
-                sad
-              </div>
+              <div class="" :style="'background: url('+task.imglink+'); background-size:cover; width:100px;'">  </div>
             </div>
+
+
         </div>
       </div>
 
@@ -68,7 +71,7 @@ export default {
     nextPage: Function,
   },
   created(){
-    console.log(this.taskList)
+    // console.log(this.taskList)
   },
   data(){
     return{
@@ -77,13 +80,18 @@ export default {
       taskList:[
       {
         text: 'Начать мыслить как самостоятельный человек',
-        cost: 'Бесплатно',
+        cost: '0',
         imglink: 'https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg',
       },
       {
-        text: 'Начать',
-        cost: 'платно',
-        imglink: 'https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg',
+        text: 'Начать управлять своими финансами',
+        cost: '10',
+        imglink: 'https://i.kym-cdn.com/photos/images/newsfeed/001/562/655/8fa.jpg',
+      },
+      {
+        text: 'Стать самодостаточным',
+        cost: '20',
+        imglink: 'https://i.kym-cdn.com/photos/images/original/001/562/654/1fd.jpg',
       },
     ],
     }
