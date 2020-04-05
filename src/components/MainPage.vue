@@ -12,15 +12,9 @@
       </nav>
     </header>
     <div class="row">
-<<<<<<< HEAD
       <div class="col elegant-color-dark poln text-warning text-center">
         <div class="quote">
           <p> '<strong>Самостоятельность</strong> - это способность купить сосиски не по акции.' (с) Адам Смит </p>
-=======
-      <div class="col">
-        <div class="">
-          <span class=""> 'Самостоятельность - это способность купить сосиски не по акции.' (с) Адам Смит </span>
->>>>>>> e24b4b4c5ba3d8973be98ddb5a49abb7768b2f60
         </div>
         <div class="todoBanner">
           <p> Выполняй задания и становись самостоятельным! </p>
