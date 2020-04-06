@@ -13,7 +13,7 @@
     </header>
     <div class="row">
       <div class="col">
-        <button type="button" @click="task.show = false; save()" class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
+        <button type="button" @click=" close(task) " class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
       </div>
     </div>
     <div class="row">
@@ -40,30 +40,16 @@ export default {
     task: Object,
     save: Function,
     coins: Number,
+    close: Function,
+    addCoins: Function,
   },
   created(){
     this.title = this.task.text
   },
   data(){
     return{
-      // coins: 10,
       checkedstyle:{"background":"#69f0ae",},
       title: '',
-
-        //   title: 'Начать мыслить как самостоятельный человек',
-        //   stages:[
-        //     {text: 'Спросите себя: “Мыслю ли я как самостоятельный человек?” и ответьте “да”, так как по-настоящему самостоятельный человек должен быть уверен в своей самостоятельности.',
-        //     cleared: false,
-        //     emojilink:'https://developers.redhat.com/blog/wp-content/uploads/2019/04/Thinking-Emoji.png'},
-        //     {text: 'Перестаньте просить о помощи у знакомых, сядьте в укромный угол, где вас никто не достанет. Самостоятельным людям не нужны друзья.',
-        //     cleared: false,
-        //     emojilink:'https://im0-tub-ru.yandex.net/i?id=d2e3c74eb436aed4cb89579970994f74&n=13',},
-        //     {text: 'Если вы не уверены, что мыслите как самостоятельный человек, начните мыслить, как самостоятельный человек, так как настоящий самостоятельный человек должен мыслить как самостоятельный человек.',
-        //     cleared: false,
-        //     emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13',},
-        //   ],
-        //   done: false,
-        //   reward: 10,
     }
   },
   methods: {

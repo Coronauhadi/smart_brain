@@ -5,8 +5,12 @@
     <AgePage :nextPage="nextPage"  v-if="namePage == 'AgePage'" />
     <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" />
     <Loser :nextPage="nextPage" v-if="namePage == 'Loser'" />
-    <Task :nextPage="nextPage" v-if="namePage == 'Task'" />
-    <!-- <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" /> -->
+    <SaveData :nextPage="nextPage"  v-if="namePage == 'SaveData'" />
+    <Winner :nextPage="nextPage"  v-if="namePage == 'Winner'" />
+    <!-- <Nav :nextPage="nextPage"  v-if="namePage == 'Nav'" /> -->
+
+    <Nav :nextPage="nextPage"   />
+
   </div>
 </template>
 
@@ -16,8 +20,10 @@ import StatPage from './components/StatPage.vue'
 import AgePage from './components/AgePage.vue'
 import MainPage from './components/MainPage.vue'
 import Loser from './components/Loser.vue'
-import Task from './components/Task.vue'
-// import MainPage from './components/MainPage.vue'
+import Winner from './components/Winner.vue'
+import SaveData from './components/SaveData.vue'
+import Nav from './components/Nav.vue'
+// import SaveData from './components/SaveData.vue'
 
 export default {
   name: 'App',
@@ -27,8 +33,10 @@ export default {
     AgePage,
     MainPage,
     Loser,
-    Task,
-    // MainPage,
+    Winner,
+    SaveData,
+    Nav,
+    // SaveData,
 
 
   },

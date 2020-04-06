@@ -24,13 +24,13 @@
       </div>
     </div>
 <!-- animated -->
-    <div class="row tasklist-head  animated slow fadeInUp pt-4" style="margin-right:-5px; " >
+    <div class="row tasklist-head animated fadeInUp pt-4" style="margin-right:-5px; " >
 
 
       <div class="col-12 p-0 position-static">
         <div class="container-fluid pb-5">
 
-          <div class="alert alert-danger text-center z-depth-2 animated fadeInUpBig faster " v-if="nocaoins" style="position:fixed!important; bottom:20px; left:15%; width:70%; z-index: 1000;" role="alert">
+          <div class="alert alert-danger text-center z-depth-2 animated fadeInUp faster " v-if="nocaoins" style="position:fixed!important; bottom:20px; left:15%; width:70%; z-index: 1000;" role="alert">
             У вас не хватает монет
           </div>
 
@@ -41,10 +41,10 @@
             </div>
           </div>
 
-            <div v-for="task in taskList" :key="task.name"  class="row mt-3 z-depth-1 mr-0  an" :style="task.styles">
+            <div v-for="task in taskList" :key="task.name"  class="row mt-3 depth  mr-0  an" :style="task.styles">
 
               <div class="ms" v-if="task.show"  style="position:fixed; height:100%; width:100%; top:0; left:0; overflow-y: scroll; z-index:99;">
-                <Task class=" " :task="task" :save="save" :coins="coins" />
+                <Task class=" " :task="task" :save="save" :close="close" :coins="coins" />
               </div>
 
               <div class="col pr-3 pt-3 pl-3 pb-0 position-relative" @click="openTask(task)">
@@ -63,11 +63,7 @@
 
     </div>
 
-    <!-- <div class="row task shadow p-3 mb-5 bg-white" v-for="task in taskList" :key="task.text">
-      <p class="col-sm-4 text-left">{{task.text}}</p>
-      <p class="col-sm-4 cost"> <img src="/res/coin.png" width="25" height="25" alt="Монетки:"> {{task.cost}} </p>
-      <p class="col-sm-4 text-right"> <img :src="task.imglink" width="100" height="100"> </p>
-    </div> -->
+
 
 
     </div>
@@ -87,20 +83,20 @@ export default {
   },
   created(){
 
-    // if (localStorage.taskList) {
-    //   try {
-    //     this.taskList = JSON.parse(localStorage.getItem('taskList'));
-    //   } catch(e) {
-    //     localStorage.removeItem('taskList');
-    //   }
-    // }
+    if (localStorage.taskList) {
+      try {
+        this.taskList = JSON.parse(localStorage.getItem('taskList'));
+      } catch(e) {
+        localStorage.removeItem('taskList');
+      }
+    }
 
-    // if (localStorage.coins) {
-    //   this.coins = Number(localStorage.coins)
-    // }
-    // if (localStorage.tasksDone) {
-    //   this.tasksDone = Number(localStorage.tasksDone)
-    // }
+    if (localStorage.coins) {
+      this.coins = Number(localStorage.coins)
+    }
+    if (localStorage.tasksDone) {
+      this.tasksDone = Number(localStorage.tasksDone)
+    }
   },
   methods: {
     save: function() {
@@ -112,84 +108,62 @@ export default {
     openTask(task){
       if (task.open) {
         task.show = true
+        this.scroll = false
       }else {
         if (task.cost<= this.coins) {
           this.coins -= task.cost
           task.open = true
           task.show = true
+          this.scroll = false
           this.save()
         }else{
           this.nocaoinsAnim()
         }
       }
     },
+    close(task){
+      task.show = false
+      this.scroll = true
+      this.tasksDoneSet()
+      this.save()
+    },
+    addCoins(coin){
+      this.coins = coin
+    },
+    tasksDoneSet(){
+      let a = 0
+      for (var i = 0; i < this.taskList.length; i++) {
+        if (this.taskList[i].checkList.done == true) {
+          a++
+        }
+      }
+      this.tasksDone = a
+    },
     nocaoinsAnim(){
       this.nocaoins = true
       setTimeout(()=>{this.nocaoins = false}, 4000)
     },
+
+
   },
   data(){
     return{
       coins: 10,
       tasksDone: 0,
       nocaoins: false,
-      taskList:[
-      {
-        text: 'Начать мыслить как самостоятельный человек',
-        cost: 5,
-        open: false,
-        show: false,
-        styles: {top: 0,},
-        imglink: 'https://sun9-65.userapi.com/c858232/v858232718/1c2ac2/ifHMdhcUqMk.jpg',
-        checkList: {
-          stages:[
-            {text: 'Спросите себя: “Мыслю ли я как самостоятельный человек?” и ответьте “да”, так как по-настоящему самостоятельный человек должен быть уверен в своей самостоятельности.',
-            cleared: false,
-            emojilink:'https://developers.redhat.com/blog/wp-content/uploads/2019/04/Thinking-Emoji.png'},
-            {text: 'Перестаньте просить о помощи у знакомых, сядьте в укромный угол, где вас никто не достанет. Самостоятельным людям не нужны друзья.',
-            cleared: false,
-            emojilink:'https://im0-tub-ru.yandex.net/i?id=d2e3c74eb436aed4cb89579970994f74&n=13',},
-            {text: 'Если вы не уверены, что мыслите как самостоятельный человек, начните мыслить, как самостоятельный человек, так как настоящий самостоятельный человек должен мыслить как самостоятельный человек.',
-            cleared: false,
-            emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13',},
-          ],
-          done: false,
-          reward: 10,
-        },
-
-      },
-      {
-        text: 'Начать управлять своими финансами',
-        cost: 10,
-        open: false,
-        imglink: 'https://i.kym-cdn.com/photos/images/newsfeed/001/562/655/8fa.jpg',
-      },
-      {
-        text: 'Начать заниматься спортом',
-        cost: '20',
-        open: false,
-        imglink: 'https://pbs.twimg.com/media/ECcJDmkX4AAfA7M.jpg',
-      },
-      {
-        text: 'Стать самодостаточным',
-        cost: '20',
-        open: false,
-        imglink: 'https://i.kym-cdn.com/photos/images/original/001/562/654/1fd.jpg',
-      },
-      {
-        text: 'Начать готовить самому себе ',
-        cost: '20',
-        open: false,
-        imglink: 'https://ak0.picdn.net/shutterstock/videos/1013024960/thumb/1.jpg',
-      },
-      {
-        text: 'Начать учиться чему-то новому',
-        cost: '20',
-        open: false,
-        imglink: 'https://i.ytimg.com/vi/owbV7eAlaDE/maxresdefault.jpg',
-      },
-    ],
+      scroll: true,
+      taskList:[],
     }
+  },
+  watch:{
+    scroll: function(bol){
+      let body = document.getElementsByTagName('body')
+      if (!bol) {
+        body[0].style.overflow = 'hidden'
+      }else {
+        body[0].style.overflow = 'auto'
+      }
+    },
   },
 
 
@@ -197,6 +171,9 @@ export default {
 </script>
 
 <style scoped>
+  .depth{
+    box-shadow: 1px 1px 10px #0000001c;
+  }
   .task-preloud{
     position: absolute;
     background: white;
