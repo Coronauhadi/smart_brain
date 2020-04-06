@@ -24,12 +24,15 @@
       </div>
     </div>
 <!-- animated -->
-    <div class="row tasklist-head   slow fadeInUp pt-4" style="margin-right:-5px; " >
+    <div class="row tasklist-head  animated slow fadeInUp pt-4" style="margin-right:-5px; " >
 
 
       <div class="col-12 p-0 position-static">
         <div class="container-fluid pb-5">
 
+          <div class="alert alert-danger text-center z-depth-2 animated fadeInUpBig faster " v-if="nocaoins" style="position:fixed!important; bottom:20px; left:15%; width:70%; z-index: 1000;" role="alert">
+            У вас не хватает монет
+          </div>
 
           <div class="row px-3">
             <div class="col-12 d-flex justify-content-between pl-0 pr-3" style="height:30px;">
@@ -37,42 +40,28 @@
               <p class=" text-right" style="font-size: 18px;"> Выполнено всего: <b>{{tasksDone}}</b> </p>
             </div>
           </div>
-<!-- animated -->
+
             <div v-for="task in taskList" :key="task.name"  class="row mt-3 z-depth-1 mr-0  an" :style="task.styles">
 
               <div class="ms" v-if="task.show"  style="position:fixed; height:100%; width:100%; top:0; left:0; overflow-y: scroll; z-index:99;">
-                <Task class=" " :task="task" :coins="coins" />
+                <Task class=" " :task="task" :save="save" :coins="coins" />
               </div>
 
-              <!-- <div class=" task-preloud an" v-if="task.show " :style="task.styles" ></div> -->
-              <!-- <div class=" task-preloud "  :style="task.styles" ></div> -->
-
-
-
-              <div class="col pr-3 pt-3 pl-3 pb-0 position-relative" @click="task.show = true ">
+              <div class="col pr-3 pt-3 pl-3 pb-0 position-relative" @click="openTask(task)">
                 <p class="lead m-0">{{task.text}}</p>
                 <p class="text-right m-0 mt-1" style="position:absolute; bottom:0px; right:10px;"> <b>{{task.cost==0?'Бесплатно':task.cost}}</b>
                   <img src="/res/coin.png" style="width:27px;" alt="">
-                  <!-- <img src="/res/lock.png" style="width:27px;" alt=""> -->
 
                 </p>
               </div>
-              <div class="" @click="task.show = true "  :style="'background: url('+task.imglink+'); background-size:cover; width:100px;background-position: center;'">  </div>
+              <div class="" @click="openTask(task)"  :style="'background: url('+task.imglink+'); background-size:cover; width:100px;background-position: center;'">  </div>
 
             </div>
-
-
-
-
-
-
 
         </div>
       </div>
 
-
     </div>
-
 
     <!-- <div class="row task shadow p-3 mb-5 bg-white" v-for="task in taskList" :key="task.text">
       <p class="col-sm-4 text-left">{{task.text}}</p>
@@ -97,25 +86,57 @@ export default {
     nextPage: Function,
   },
   created(){
-    // console.log(this.taskList)
-    if (localStorage.taskList) {
-      this.taskList = localStorage.taskList
-    }
-    if (localStorage.coins) {
-      this.coins = localStorage.coins
-    }
+
+    // if (localStorage.taskList) {
+    //   try {
+    //     this.taskList = JSON.parse(localStorage.getItem('taskList'));
+    //   } catch(e) {
+    //     localStorage.removeItem('taskList');
+    //   }
+    // }
+
+    // if (localStorage.coins) {
+    //   this.coins = Number(localStorage.coins)
+    // }
+    // if (localStorage.tasksDone) {
+    //   this.tasksDone = Number(localStorage.tasksDone)
+    // }
   },
   methods: {
-
+    save: function() {
+      const parsed = JSON.stringify(this.taskList);
+      localStorage.setItem('taskList', parsed);
+      localStorage.coins = this.coins
+      localStorage.tasksDone = this.tasksDone
+    },
+    openTask(task){
+      if (task.open) {
+        task.show = true
+      }else {
+        if (task.cost<= this.coins) {
+          this.coins -= task.cost
+          task.open = true
+          task.show = true
+          this.save()
+        }else{
+          this.nocaoinsAnim()
+        }
+      }
+    },
+    nocaoinsAnim(){
+      this.nocaoins = true
+      setTimeout(()=>{this.nocaoins = false}, 4000)
+    },
   },
   data(){
     return{
-      coins: 0,
+      coins: 10,
       tasksDone: 0,
+      nocaoins: false,
       taskList:[
       {
         text: 'Начать мыслить как самостоятельный человек',
-        cost: '0',
+        cost: 5,
         open: false,
         show: false,
         styles: {top: 0,},
@@ -139,7 +160,7 @@ export default {
       },
       {
         text: 'Начать управлять своими финансами',
-        cost: '10',
+        cost: 10,
         open: false,
         imglink: 'https://i.kym-cdn.com/photos/images/newsfeed/001/562/655/8fa.jpg',
       },
@@ -170,9 +191,7 @@ export default {
     ],
     }
   },
-  watch:{
-    
-  }
+
 
 }
 </script>
@@ -196,9 +215,7 @@ export default {
   .poln{
     min-height: 100vh;
   }
-  .container-fluid{
-    /* background-color: #212121; */
-  }
+
   .tasklist-head{
     min-height: 75vh;
     border-top-right-radius: 65px;

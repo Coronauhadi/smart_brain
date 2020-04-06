@@ -13,20 +13,21 @@
     </header>
     <div class="row">
       <div class="col">
-        <button type="button" @click="task.show = false" class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
+        <button type="button" @click="task.show = false; save()" class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <p class="text-center task-title"> {{title}} </p>
+        <p class="text-center mt-4 task-title"> {{title}} </p>
       </div>
     </div>
-    <div class="row task p-3 bg-white" @click="stage.cleared = true" v-for="stage in task.checkList.stages" :key="stage.text">
-      <ul class="list-group list-group-horizontal list-group-flush">
-        <!-- <li class="list-group-item" :style="stage.cleared? checkedstyle : {}"> -->
-          <!-- <input type="checkbox" class="chckbox" :disabled="stage.cleared" v-model="stage.cleared"> -->
-        <!-- </li> -->
-        <li class="list-group-item " :style="stage.cleared? checkedstyle : {}">{{stage.text}} <br> <img class="emoji" :src="stage.emojilink" width="65" height="65" alt=""> </li>
+    <div class="row task p-3 bg-white" @click="sheck(stage); save() " v-for="stage in task.checkList.stages" :key="stage.text">
+      <ul class="list-group list-group-horizontal list-group-flush mb-3">
+        <li class="list-group-item z-depth-1" :style="stage.cleared? checkedstyle : {}">
+          {{stage.text}} <br>
+          <img class="emoji" :src="stage.emojilink" width="65" height="65" alt="">
+        </li>
+
       </ul>
     </div>
     </div>
@@ -37,18 +38,18 @@ export default {
   name: 'Task',
   props: {
     task: Object,
+    save: Function,
     coins: Number,
   },
   created(){
-    this.title = this.task.title
+    this.title = this.task.text
   },
   data(){
     return{
       // coins: 10,
-      checkedstyle:{"background":"rgba(216, 216, 216, 0.5)",},
+      checkedstyle:{"background":"#69f0ae",},
       title: '',
-      // checkList: [
-        // {
+
         //   title: 'Начать мыслить как самостоятельный человек',
         //   stages:[
         //     {text: 'Спросите себя: “Мыслю ли я как самостоятельный человек?” и ответьте “да”, так как по-настоящему самостоятельный человек должен быть уверен в своей самостоятельности.',
@@ -63,18 +64,28 @@ export default {
         //   ],
         //   done: false,
         //   reward: 10,
-        // },
-
-      // ],
     }
   },
   methods: {
-
+    sheck(stage){
+      stage.cleared = true
+      let don = 0
+      for (var i = 0; i < this.task.checkList.stages.length; i++) {
+        this.task.checkList.stages[i].cleared
+        if(this.task.checkList.stages[i].cleared == true){
+          don++
+        }
+      }
+      if (don == this.task.checkList.stages.length) {
+        this.task.checkList.done = true
+      }
+    }
   },
 }
 </script>
 
 <style scoped>
+
   .goback{
     padding: 0.6em;
     font-size: 16px;
@@ -96,7 +107,9 @@ export default {
   }
 
   .list-group-item{
-    border: none;
+    border-radius: 10px!important;
+    font-size: 24px;
+    /* border: none; */
   }
 
   .navbar-brand{
@@ -116,8 +129,8 @@ export default {
 
   .task-title{
     font-family: 'Oswald', sans-serif;
-    font-weight: 500;
-    font-size: 25px;
+    font-weight: 400;
+    font-size: 30px;
     line-height: 29px;
   }
 </style>
