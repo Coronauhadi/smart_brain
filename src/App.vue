@@ -38,7 +38,7 @@ export default {
     this.aud.src = 'mus/Sound.wav';
     if (localStorage.namePage) {
       //Эта переменная влияет на сохранение страницы при перезагрузке
-      // this.namePage = localStorage.namePage
+      this.namePage = localStorage.namePage
     }
   },
   data(){
@@ -69,8 +69,8 @@ export default {
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Oswald', sans-serif;
     /* font-weight: 100; */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    /* -webkit-font-smoothing: antialiased; */
+    /* -moz-osx-font-smoothing: grayscale; */
     /* color: #2c3e50; */
   }
 </style>

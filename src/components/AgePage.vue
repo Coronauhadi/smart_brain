@@ -40,6 +40,8 @@ export default {
     this.getCoords(this.stat)
     this.setYear()
     this.setDay()
+    this.aud = new Audio();
+    this.aud.src = 'mus/Sound.wav';
   },
   data(){
     return{
@@ -55,6 +57,7 @@ export default {
         bottom: '-10px',
         left: '10px'
       },
+      aud: '',
 
     }
   },
@@ -111,6 +114,8 @@ export default {
   },
   watch:{
     stat: function(val) {
+      this.aud.play();
+
       if (val < 4) {
         this.getCoords(val)
       }

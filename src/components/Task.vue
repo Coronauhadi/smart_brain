@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid elegant-color-white poln">
+  <div class="container-fluid white poln">
     <header class="row">
-      <nav class="col  elegant-color-white text-black">
+      <nav class="col white text-black">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
@@ -13,18 +13,20 @@
     </header>
     <div class="row">
       <div class="col">
-        <button type="button" class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
+        <button type="button" @click="task.show = false" class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <p class="text-center task-title"> {{view.title}} </p>
+        <p class="text-center task-title"> {{title}} </p>
       </div>
     </div>
-    <div class="row task p-3 bg-white" v-for="stage in view.stages" :key="stage.cleared">
+    <div class="row task p-3 bg-white" @click="stage.cleared = true" v-for="stage in task.checkList.stages" :key="stage.text">
       <ul class="list-group list-group-horizontal list-group-flush">
-        <li class="list-group-item" :style="stage.cleared? checkedstyle : {}"><input type="checkbox" class="chckbox" v-model="stage.cleared"></li>
-        <li class="list-group-item" :style="stage.cleared? checkedstyle : {}">{{stage.text}} <br> <img class="emoji" :src="stage.emojilink" width="65" height="65" alt=""> </li>
+        <!-- <li class="list-group-item" :style="stage.cleared? checkedstyle : {}"> -->
+          <!-- <input type="checkbox" class="chckbox" :disabled="stage.cleared" v-model="stage.cleared"> -->
+        <!-- </li> -->
+        <li class="list-group-item " :style="stage.cleared? checkedstyle : {}">{{stage.text}} <br> <img class="emoji" :src="stage.emojilink" width="65" height="65" alt=""> </li>
       </ul>
     </div>
     </div>
@@ -32,49 +34,38 @@
 
 <script>
 export default {
-  name: 'MainPage',
+  name: 'Task',
   props: {
-    nextPage: Function,
-    taskCount: Number,
+    task: Object,
+    coins: Number,
   },
   created(){
-    this.view = this.checkList[this.checkListIndex]
+    this.title = this.task.title
   },
   data(){
     return{
-      //TODO: make in props, temporary
-      checkListIndex: 0,
-      //TODO: redo, Temporary value
-      coins: 10,
-      //points to the right data in checkList
-      view: undefined,
+      // coins: 10,
       checkedstyle:{"background":"rgba(216, 216, 216, 0.5)",},
-      checkList: [
-        {
-          title: 'Начать мыслить как самостоятельный человек',
-          stages:[
-            {text: 'Спросите себя: “Мыслю ли я как самостоятельный человек?” и ответьте “да”, так как по-настоящему самостоятельный человек должен быть уверен в своей самостоятельности.',
-            cleared: false,
-            emojilink:'https://developers.redhat.com/blog/wp-content/uploads/2019/04/Thinking-Emoji.png'},
-            {text: 'Перестаньте просить о помощи у знакомых, сядьте в укромный угол, где вас никто не достанет. Самостоятельным людям не нужны друзья.',
-            cleared: false,
-            emojilink:'https://im0-tub-ru.yandex.net/i?id=d2e3c74eb436aed4cb89579970994f74&n=13',},
-            {text: 'Если вы не уверены, что мыслите как самостоятельный человек, начните мыслить, как самостоятельный человек, так как настоящий самостоятельный человек должен мыслить как самостоятельный человек.',
-            cleared: false,
-            emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13',},
-          ],
-          done: false,
-          reward: 10,
-        },
-        {
-          title: '',
-          stages:[
+      title: '',
+      // checkList: [
+        // {
+        //   title: 'Начать мыслить как самостоятельный человек',
+        //   stages:[
+        //     {text: 'Спросите себя: “Мыслю ли я как самостоятельный человек?” и ответьте “да”, так как по-настоящему самостоятельный человек должен быть уверен в своей самостоятельности.',
+        //     cleared: false,
+        //     emojilink:'https://developers.redhat.com/blog/wp-content/uploads/2019/04/Thinking-Emoji.png'},
+        //     {text: 'Перестаньте просить о помощи у знакомых, сядьте в укромный угол, где вас никто не достанет. Самостоятельным людям не нужны друзья.',
+        //     cleared: false,
+        //     emojilink:'https://im0-tub-ru.yandex.net/i?id=d2e3c74eb436aed4cb89579970994f74&n=13',},
+        //     {text: 'Если вы не уверены, что мыслите как самостоятельный человек, начните мыслить, как самостоятельный человек, так как настоящий самостоятельный человек должен мыслить как самостоятельный человек.',
+        //     cleared: false,
+        //     emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13',},
+        //   ],
+        //   done: false,
+        //   reward: 10,
+        // },
 
-          ],
-          done:false,
-          reward: 10,
-        },
-      ],
+      // ],
     }
   },
   methods: {
