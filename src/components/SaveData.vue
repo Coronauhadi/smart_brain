@@ -19,6 +19,34 @@ export default {
   },
   data(){
     return{
+      shopList: [
+        {
+          title:'Умение завязывать галстук',
+          img: 'https://cdn.pixabay.com/photo/2015/03/26/09/41/tie-690084_960_720.jpg',
+          url: 'https://www.youtube.com/watch?v=RZMsRcf43MI',
+        },
+        {
+          title:'Умение завязать шнурки',
+          img: 'https://cdn.pixabay.com/photo/2017/02/08/16/01/business-2049312_960_720.jpg',
+          url: 'https://www.youtube.com/watch?v=cXvfZyYV1no',
+        },
+        {
+          title:'Умение готовить яичницу',
+          img: 'https://cdn.pixabay.com/photo/2019/06/10/15/53/egg-4264639_960_720.jpg',
+          url: 'https://www.youtube.com/watch?v=vgfdAxcXdKY',
+        },
+        {
+          title:'Умение жарить мясо',
+          img: 'https://cdn.pixabay.com/photo/2019/05/26/20/10/meat-4231141_960_720.jpg',
+          url: 'https://www.youtube.com/watch?v=qeJC7ES_QHY',
+        },
+        {
+          title:'Умение наливать пиво',
+          img: 'https://cdn.pixabay.com/photo/2018/05/31/16/51/glass-of-beer-3444480_960_720.jpg',
+          url: 'https://www.youtube.com/watch?v=8Q47L1rP43c',
+        },
+
+      ],
       taskList:[
       {
         text: 'Начать мыслить как самостоятельный человек',
@@ -38,6 +66,11 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13',},
           ],
+          winner:{
+            title: 'Просветлённый',
+            text: 'Теперь вы знаете все секреты этого непонятного мира',
+            img: 'https://cdn.pixabay.com/photo/2017/11/11/15/52/young-man-2939344_960_720.jpg',
+          },
           done: false,
           reward: 10,
         },
@@ -62,6 +95,11 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
           ],
+          winner:{
+            title: 'Финансист',
+            text: 'Теперь вам не страшны никакие кризисы',
+            img: 'https://forex-invest.tv/images/stories/doveritelnoe-upravlenie/spisok-brokerov-foreks-s-pamm-schetami-1b.jpeg',
+          },
           done: false,
           reward: 10,
         },
@@ -86,6 +124,12 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
           ],
+          winner:{
+            title: 'Спортсмен',
+            text: 'В здоровом теле - здоровый дух',
+            img: 'https://econet.ru/uploads/pictures/298439/content_11_1__econet_ru.jpg',
+
+          },
           done: false,
           reward: 10,
         },
@@ -111,6 +155,11 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
           ],
+          winner:{
+            title: 'Циник и мизантроп',
+            text: 'Интересно, почему люди на меня так смотрят?',
+            img: 'https://avatars.mds.yandex.net/get-zen_doc/1909059/pub_5d28df68f0d4f400afcbd9e9_5d28e763d11ba200ac67487c/scale_1200',
+          },
           done: false,
           reward: 10,
         },
@@ -133,6 +182,11 @@ export default {
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
 
           ],
+          winner:{
+            title: 'Повар',
+            text: 'С мазиком пойдёт',
+            img: 'https://avatars.mds.yandex.net/get-pdb/2295191/d117cafe-a8c6-4a59-8ea2-e831a217f7ef/s1200?webp=false',
+          },
           done: false,
           reward: 10,
         },
@@ -157,6 +211,11 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
           ],
+          winner:{
+            title: 'Бизнес',
+            text: 'Речь идёт о трёхзначных суммах',
+            img: 'https://marketologist.today/assets/images/resources/32/russkoe-chudo.jpg',
+          },
           done: false,
           reward: 10,
         },
@@ -181,6 +240,11 @@ export default {
             cleared: false,
             emojilink:'https://im0-tub-ru.yandex.net/i?id=41324c8cd773db02f9a0fd3a1ee54b36&n=13'},
           ],
+          winner:{
+            title: 'Модник',
+            text: 'Хм.... Мама сказала симпотяга.',
+            img: 'https://mtdata.ru/u1/photoA316/20958923256-0/original.jpg',
+          },
           done: false,
           reward: 10,
         },
