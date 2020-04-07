@@ -9,7 +9,7 @@
     <Winner :nextPage="nextPage"  v-if="namePage == 'Winner'" />
     <!-- <Nav :nextPage="nextPage"  v-if="namePage == 'Nav'" /> -->
 
-    <Nav :nextPage="nextPage"   />
+    <Nav :nextPage="nextPage"  v-if="namePage=='MainPage'||namePage=='PricePage'||namePage=='ShopPage'||namePage=='ProfilePage'" />
 
   </div>
 </template>
@@ -57,7 +57,7 @@ export default {
   },
   methods:{
     nextPage: function(newPage) {
-      this.aud.play();
+      // this.aud.play();
       this.namePage = newPage
       localStorage.namePage = newPage
     },

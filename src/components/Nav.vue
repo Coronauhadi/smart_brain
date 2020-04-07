@@ -2,30 +2,30 @@
   <div class="container-fluid z-depth-2 white navs">
     <div class=" row pt-1" style="">
 
-      <div class="h50 col text-center bor ">
+        <div class="h50 col text-center bor " @click="openpage('PricePage')">
         <div class="d-flex flex-column mt-2">
           <!-- <i class="far  fa-lg fa-list-alt"></i> -->
           <!-- <i class="far  fa-list-alt"></i> -->
-          <i class="fas fa-lg fa-award"></i>
-          <small class="">Достижения</small>
+          <i :class="'fas fa-lg fa-award '+(nameMenu=='PricePage'?'cl':'') "></i>
+          <small :class="' '+(nameMenu=='PricePage'?'cl':'')">Достижения</small>
         </div>
       </div>
-      <div class="h50 col text-center bor ">
+      <div class="h50 col text-center bor " @click="openpage('MainPage')">
         <div class="d-flex flex-column mt-2">
-          <i class="fas cl fa-lg fa-brain"></i>
-          <small class="cl">Задания</small>
+          <i :class="'fas  fa-lg fa-brain '+(nameMenu=='MainPage'?'cl':'')"></i>
+          <small :class="' '+(nameMenu=='MainPage'?'cl':'')">Задания</small>
         </div>
       </div>
-      <div class="h50 col text-center bor ">
+      <div class="h50 col text-center bor " @click="openpage('ShopPage')">
         <div class="d-flex flex-column mt-2">
-          <i class="fas fa-lg fa-warehouse"></i>
-          <small class="">Магазин</small>
+          <i :class="'fas fa-lg fa-warehouse '+(nameMenu=='ShopPage'?'cl':'') "></i>
+          <small :class="' '+(nameMenu=='ShopPage'?'cl':'')">Магазин</small>
         </div>
       </div>
-      <div class="h50 col text-center bor ">
-        <div class="d-flex flex-column mt-2">
-          <i class="far  fa-lg fa-list-alt"></i>
-          <small class="">Профиль</small>
+      <div class="h50 col text-center bor " @click="openpage('ProfilePage')">
+        <div :class="'d-flex flex-column mt-2 '+(nameMenu=='ProfilePage'?'cl':'') ">
+          <i :class="'far fa-lg fa-list-alt '+(nameMenu=='ProfilePage'?'cl':'')"></i>
+          <small :class="' '+(nameMenu=='ProfilePage'?'cl':'')">Профиль</small>
         </div>
       </div>
 
@@ -41,11 +41,14 @@ export default {
   },
   data(){
     return{
-
+      nameMenu: 'MainPage'
     }
   },
   methods: {
-
+    openpage(page){
+      this.nextPage(page)
+      this.nameMenu = page
+    },
   },
 }
 </script>
