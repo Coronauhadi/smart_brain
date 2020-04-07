@@ -6,7 +6,10 @@
     <MainPage :nextPage="nextPage"  v-if="namePage == 'MainPage'" />
     <Loser :nextPage="nextPage" v-if="namePage == 'Loser'" />
     <SaveData :nextPage="nextPage"  v-if="namePage == 'SaveData'" />
-    <Winner :nextPage="nextPage"  v-if="namePage == 'Winner'" />
+    <!-- <Winner :nextPage="nextPage"  v-if="namePage == 'Winner'" /> -->
+    <PricePage :nextPage="nextPage"  v-if="namePage == 'PricePage'" />
+    <ShopPage :nextPage="nextPage"  v-if="namePage == 'ShopPage'" />
+    <ProfilePage :nextPage="nextPage"  v-if="namePage == 'ProfilePage'" />
     <!-- <Nav :nextPage="nextPage"  v-if="namePage == 'Nav'" /> -->
 
     <Nav :nextPage="nextPage"  v-if="namePage=='MainPage'||namePage=='PricePage'||namePage=='ShopPage'||namePage=='ProfilePage'" />
@@ -20,9 +23,12 @@ import StatPage from './components/StatPage.vue'
 import AgePage from './components/AgePage.vue'
 import MainPage from './components/MainPage.vue'
 import Loser from './components/Loser.vue'
-import Winner from './components/Winner.vue'
+// import Winner from './components/Winner.vue'
 import SaveData from './components/SaveData.vue'
 import Nav from './components/Nav.vue'
+import PricePage from './components/PricePage.vue'
+import ShopPage from './components/ShopPage.vue'
+import ProfilePage from './components/ProfilePage.vue'
 // import SaveData from './components/SaveData.vue'
 
 export default {
@@ -33,9 +39,12 @@ export default {
     AgePage,
     MainPage,
     Loser,
-    Winner,
+    // Winner,
     SaveData,
     Nav,
+    PricePage,
+    ShopPage,
+    ProfilePage,
     // SaveData,
 
 

@@ -24,8 +24,8 @@
       </div>
       <div class="h50 col text-center bor " @click="openpage('ProfilePage')">
         <div :class="'d-flex flex-column mt-2 '+(nameMenu=='ProfilePage'?'cl':'') ">
-          <i :class="'far fa-lg fa-list-alt '+(nameMenu=='ProfilePage'?'cl':'')"></i>
-          <small :class="' '+(nameMenu=='ProfilePage'?'cl':'')">Профиль</small>
+          <i :class="'fas fa-lg fa-code '+(nameMenu=='ProfilePage'?'cl':'')"></i>
+          <small :class="' '+(nameMenu=='ProfilePage'?'cl':'')">Приложение</small>
         </div>
       </div>
 
@@ -38,6 +38,12 @@ export default {
   name: 'Nav',
   props: {
     nextPage: Function,
+  },
+  mounted(){
+    if (localStorage.namePage) {
+      //Эта переменная влияет на сохранение страницы при перезагрузке
+      this.nameMenu = localStorage.namePage
+    }
   },
   data(){
     return{

@@ -24,7 +24,7 @@
       </div>
     </div>
 <!-- animated -->
-    <div class="row tasklist-head animated fadeInUp pt-4" style="margin-right:-5px; " >
+    <div class="row tasklist-head  fadeInUp pt-4" style="margin-right:-5px; " >
 
 
       <div class="col-12 p-0 position-static">
@@ -36,15 +36,16 @@
 
           <div class="row px-3">
             <div class="col-12 d-flex justify-content-between pl-0 pr-3" style="height:30px;">
-              <p class=" text-left font-weight-light h4" style=""> ЗАДАНИЯ </p>
+              <h1 class=" text-left  h3" style=""> ЗАДАНИЯ </h1>
               <p class=" text-right" style="font-size: 18px;"> Выполнено всего: <b>{{tasksDone}}</b> </p>
             </div>
           </div>
 
-            <div v-for="task in taskList" :key="task.name"  class="row mt-3 depth  mr-0  an" :style="task.styles">
+            <div v-for="task in taskList" :key="task.name"   class="row mt-3 depth  mr-0  an position-relative" :style="task.styles">
+              <div v-if="task.checkList.done==true" class="position-absolute h-100 w-100 rgba-stylish-light " style="z-index:60;"></div>
 
               <div class="ms" v-if="task.show"  style="position:fixed; height:100%; width:100%; top:0; left:0; overflow-y: scroll; z-index:99;">
-                <Task class=" " :task="task" :save="save" :close="close" :coins="coins" />
+                <Task class=" " :task="task" :save="save" :close="close" :addCoins="addCoins" :coins="coins" />
               </div>
 
               <div class="col pr-3 pt-3 pl-3 pb-0 position-relative" @click="openTask(task)">
@@ -128,7 +129,8 @@ export default {
       this.save()
     },
     addCoins(coin){
-      this.coins = coin
+      this.coins += coin
+      localStorage.coins = this.coins
     },
     tasksDoneSet(){
       let a = 0
@@ -138,6 +140,7 @@ export default {
         }
       }
       this.tasksDone = a
+      localStorage.tasksDone = a
     },
     nocaoinsAnim(){
       this.nocaoins = true

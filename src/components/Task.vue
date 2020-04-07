@@ -1,41 +1,63 @@
 <template>
-  <div class="container-fluid white poln">
-    <header class="row">
-      <nav class="col white text-black">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <span class="navbar-brand"> <img src="/res/coin.png" width="25" height="25" alt="Монетки:"> {{coins}} </span>
+  <div class="">
+    <div class="container-fluid white poln" v-if="!Win">
+      <header class="row">
+        <nav class="col white text-black">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <span class="navbar-brand"> <img src="/res/coin.png" width="25" height="25" alt="Монетки:"> {{coins}} </span>
+              </div>
             </div>
           </div>
+        </nav>
+      </header>
+      <div class="row">
+        <div class="col">
+          <button type="button" @click=" close(task) " class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
         </div>
-      </nav>
-    </header>
-    <div class="row">
-      <div class="col">
-        <button type="button" @click=" close(task) " class="btn shadow-sm btn-white text-black goback"><img src="/res/backArrow.png" width="15" height="15" alt=""> Вернуться назад </button>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p class="text-center mt-4 task-title"> {{title}} </p>
+      <div class="row">
+        <div class="col">
+          <p class="text-center mt-4 task-title"> {{title}} </p>
+        </div>
       </div>
-    </div>
-    <div class="row task p-3 bg-white" @click="sheck(stage); save() " v-for="stage in task.checkList.stages" :key="stage.text">
-      <ul class="list-group list-group-horizontal list-group-flush mb-3">
-        <li class="list-group-item z-depth-1" :style="stage.cleared? checkedstyle : {}">
-          {{stage.text}} <br>
-          <img class="emoji" :src="stage.emojilink" width="65" height="65" alt="">
-        </li>
+      <div class="row task p-3 bg-white" @click="sheck(stage); save() " v-for="stage in task.checkList.stages" :key="stage.text">
+        <ul class="list-group list-group-horizontal list-group-flush mb-3">
+          <li class="list-group-item z-depth-1" :style="stage.cleared? checkedstyle : {}">
+            {{stage.text}} <br>
+            <img class="emoji" :src="stage.emojilink" width="65" height="65" alt="">
+          </li>
 
-      </ul>
+        </ul>
+      </div>
     </div>
+
+    <div class="container-fluid white bg poln" style=" " v-if="Win">
+      <div class="row rgba-black-light text-white" style="height:100vh;">
+        <div class="col text-center">
+          <h5 class=" " style="margin-top:5vh;">Достижение получено</h5>
+          <p class="" style="font-size:50px!important; margin-top:5vh;"><b>Просветленный</b> </p>
+          <p class="" style="font-size:30px!important; margin-top:10vh;">Теперь вы знаете все секреты этого непонятного мира</p>
+          <p class="" style="font-size:30px!important; margin-top:5vh;"><b>+20</b> <img src="/res/coin.png" class="mb-1" width="45" height="45" alt="Монетки:"></p>
+          <button type="button" @click="close(task);addCoins(20);" class="btn rgba-white-strong black-text  btn-lg rounded w-75 py-4 " style="font-size:20px; position:absolute; bottom:20px; left: 12%" name="button">Я молодец</button>
+        </div>
+      </div>
     </div>
+
+    <!-- <Winner v-if="!Win"/> -->
+  </div>
 </template>
 
 <script>
+// import Winner from './Winner.vue'
+
+
 export default {
   name: 'Task',
+  components: {
+    // Winner,
+  },
   props: {
     task: Object,
     save: Function,
@@ -50,6 +72,7 @@ export default {
     return{
       checkedstyle:{"background":"#69f0ae",},
       title: '',
+      Win: false,
     }
   },
   methods: {
@@ -64,6 +87,7 @@ export default {
       }
       if (don == this.task.checkList.stages.length) {
         this.task.checkList.done = true
+        this.Win = true
       }
     }
   },
@@ -72,6 +96,11 @@ export default {
 
 <style scoped>
 
+  .bg{
+    background:url('https://cdn.pixabay.com/photo/2017/11/11/15/52/young-man-2939344_960_720.jpg');
+    background-position:center;
+    background-size: cover;
+  }
   .goback{
     padding: 0.6em;
     font-size: 16px;
