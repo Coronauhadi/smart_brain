@@ -35,7 +35,7 @@ export default {
     min-height: 100vh;
   }
   .heading{
-    margin-top: 150px;
+    margin-top: 80px;
     font-size: 55px;
   }
   a{

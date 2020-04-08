@@ -16,13 +16,13 @@
           <span class="st" style="">все равно попытаться</span>
         </div>
 
-        <div class="d-flex justify-content-between flex-wrap mt-5" v-if="stat==1"  style="">
+        <div class="d-flex justify-content-between flex-wrap mt-3" v-if="stat==1"  style="">
           <a v-for="year in yearsAr" @click="years = year; stat = 2" :key="year.name" class="btn-outline-white btn-sm rounded yars mx-1 mt-2 py-2" >{{year}}</a>
         </div>
-        <div class="d-flex justify-content-between flex-wrap mt-5" v-if="stat==2"  style="">
+        <div class="d-flex justify-content-between flex-wrap mt-3" v-if="stat==2"  style="">
           <a v-for="(m, index) in mesAr" @click="mes = index+1; stat = 3" :key="m.name" class="btn-outline-white rounded mess mx-1 mt-2 py-2" >{{m}}</a>
         </div>
-        <div class="d-flex justify-content-center flex-wrap mt-5" v-if="stat==3"  style="">
+        <div class="d-flex justify-content-center flex-wrap mt-3" v-if="stat==3"  style="">
           <a v-for="(d) in dayAr" @click="day = d; stat = 4" :key="d.name" class="btn-outline-white btn-sm rounded day mx-1 mt-2" >{{d}}</a>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default {
   },
   watch:{
     stat: function(val) {
-      this.aud.play();
+      // this.aud.play();
 
       if (val < 4) {
         this.getCoords(val)
@@ -159,16 +159,16 @@ export default {
     border-radius: 7px;
   }
   .yars{
-    width: 60px;
-    font-size: 20px;
+    width: 55px;
+    font-size: 15px;
   }
   .mess{
     width: 100px;
     font-size: 24px;
   }
   .day{
-    width: 60px;
-    font-size: 24px;
+    width: 55px;
+    font-size: 16px;
   }
   .anim{
     transition: all 0.5s ease;
@@ -177,7 +177,7 @@ export default {
     min-height: 100vh;
   }
   .heading{
-    margin-top: 50px;
+    margin-top: 30px;
     font-size: 55px;
   }
   a{

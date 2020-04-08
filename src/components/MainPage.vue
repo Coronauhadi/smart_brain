@@ -42,7 +42,7 @@
           </div>
 
             <div v-for="task in taskList" :key="task.name"   class="row mt-3 depth  mr-0  an position-relative" :style="task.styles">
-              <div v-if="task.checkList.done==true" class="position-absolute h-100 w-100 rgba-stylish-light " style="z-index:60;"></div>
+              <div v-if="task.checkList.done==true" class="position-absolute h-100 w-100  " style="z-index:60;background:#00000012;"></div>
 
               <div class="ms" v-if="task.show"  style="position:fixed; height:100%; width:100%; top:0; left:0; overflow-y: scroll; z-index:99;">
                 <Task class=" " :task="task" :save="save" :close="close" :addCoins="addCoins" :coins="coins" />
@@ -50,7 +50,7 @@
 
               <div class="col pr-3 pt-3 pl-3 pb-0 position-relative" @click="openTask(task)">
                 <p class="lead m-0">{{task.text}}</p>
-                <p class="text-right m-0 mt-1" style="position:absolute; bottom:0px; right:10px;"> <b>{{task.cost==0?'Бесплатно':task.cost}}</b>
+                <p class="text-right m-0 mt-1" style="position:absolute; bottom:0px; right:10px;"> <b>{{task.cost==0?'Бесплатно':'-'+task.cost}}</b>
                   <img src="/res/coin.png" style="width:27px;" alt="">
 
                 </p>
@@ -151,7 +151,7 @@ export default {
   },
   data(){
     return{
-      coins: 10,
+      coins: 0,
       tasksDone: 0,
       nocaoins: false,
       scroll: true,

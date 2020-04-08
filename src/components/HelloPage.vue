@@ -93,7 +93,7 @@ export default {
     margin-top: 100px;
   }
   .mt-10{
-    margin-top: 150px;
+    margin-top: 100px;
   }
 
 </style>

@@ -22,10 +22,10 @@
           <p class="text-center mt-4 task-title"> {{title}} </p>
         </div>
       </div>
-      <div class="row task p-3 bg-white" @click="sheck(stage); save() " v-for="stage in task.checkList.stages" :key="stage.text">
+      <div class="row task p-3 bg-white" @click="sheck(stage); save() " v-for="(stage, index) in task.checkList.stages" :key="stage.text">
         <ul class="list-group list-group-horizontal list-group-flush mb-3">
-          <li class="list-group-item z-depth-1" :style="stage.cleared? checkedstyle : {}">
-            {{stage.text}} <br>
+          <li class="list-group-item z-depth-1" :style="stage.cleared? checkedstyle : ' background:#00000008;'">
+            <b>{{index+1+'. '}}</b> {{stage.text}} <br>
             <img class="emoji" :src="stage.emojilink" width="65" height="65" alt="">
           </li>
 
@@ -33,14 +33,14 @@
       </div>
     </div>
 
-    <div class="container-fluid white  poln" :style="'background:url('+task.checkList.winner.title+'); background-position:center; background-size: cover; '" v-if="Win">
+    <div class="container-fluid poln" :style="'background:url('+task.checkList.winner.img+'); background-position:center; background-size: cover; '" v-if="Win">
       <div class="row rgba-black-light text-white" style="height:100vh;">
         <div class="col text-center">
           <h5 class=" " style="margin-top:5vh;">Достижение получено</h5>
           <p class="" style="font-size:50px!important; margin-top:5vh;"><b>{{task.checkList.winner.title}}</b> </p>
           <p class="" style="font-size:30px!important; margin-top:10vh;">{{task.checkList.winner.text}}</p>
-          <p class="" style="font-size:30px!important; margin-top:5vh;"><b>+20</b> <img src="/res/coin.png" class="mb-1" width="45" height="45" alt="Монетки:"></p>
-          <button type="button" @click="close(task);addCoins(20);" class="btn rgba-white-strong black-text  btn-lg rounded w-75 py-4 " style="font-size:20px; position:absolute; bottom:20px; left: 12%" name="button">Я молодец</button>
+          <p class="" style="font-size:30px!important; margin-top:5vh;"><b>+{{task.checkList.reward}}</b> <img src="/res/coin.png" class="mb-1" width="45" height="45" alt="Монетки:"></p>
+          <button type="button" @click="close(task);addCoins(task.checkList.reward);" class="btn rgba-white-strong black-text  btn-lg rounded w-75 py-4 " style="font-size:20px; position:absolute; bottom:20px; left: 12%" name="button">Я молодец</button>
         </div>
       </div>
     </div>
